@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Parcel {
+  id                Int    @id @default(autoincrement())
+  sender_name       String
+  sender_addr       String
+  sender_contact    String
+  recipient_name    String
+  recipient_addr    String
+  recipient_contact String
+  parcel_info       String
+  status            String
+}
+
+model User {
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  name     String?
+  password String
+}
